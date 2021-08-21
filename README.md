@@ -1,4 +1,4 @@
-# System-Monitor-for-Linux
+# System Monitor for Linux (as part of Udacity's C++ Nanodegree Program)
 This is my solution for the 2nd project in Udacity's C++ Nanodegree Program. The goal of this project is to complete a system monitor running on Linux.
 The initial code-base for the system monitor project in the Object Oriented Programming Course of the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) can be found [here](https://github.com/udacity/CppND-System-Monitor-Project-Updated).
 ![System Monitor](images/monitor.png)
