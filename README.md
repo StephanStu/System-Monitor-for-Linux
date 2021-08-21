@@ -40,4 +40,3 @@ make build
 ~~~
 ./build/monitor
 ~~~
-![Starting System Monitor](images/starting_monitor.png)
