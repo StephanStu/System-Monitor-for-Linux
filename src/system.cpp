@@ -3,11 +3,11 @@
 #include <set>
 #include <string>
 #include <vector>
-
 #include "process.h"
 #include "processor.h"
 #include "system.h"
-
+// Added linux_parser's header here to make functions available to System-Class.
+#include "linux_parser.h"
 using std::set;
 using std::size_t;
 using std::string;
@@ -20,7 +20,7 @@ Processor& System::Cpu() { return cpu_; }
 vector<Process>& System::Processes() { return processes_; }
 
 // TODO: Return the system's kernel identifier (string)
-std::string System::Kernel() { return string(); }
+std::string System::Kernel() { return LinuxParser::Kernel();}
 
 // TODO: Return the system's memory utilization
 float System::MemoryUtilization() { return 0.0; }
