@@ -29,6 +29,10 @@ vector<Process>& System::Processes() {
   for(int id: processIds){
     processes_.push_back(Process(id));
   }
+  // Now update the CPU-Utilization
+  for(auto& process: processes_){
+    // run a process.update()-function that updates member-variables of that process.
+  }
   return processes_;
 }
 
