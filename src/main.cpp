@@ -1,10 +1,11 @@
 #include "ncurses_display.h"
 #include "system.h"
-//#include <iostream>
+#include <iostream>
 
 
 int main() {
   System system;
   //std::cout<<system.MemoryUtilization();
+  //std::cout<<system.UpTime();
   NCursesDisplay::Display(system);
 }

@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <assert.h>
+//#include <iostream>
 
 #include "linux_parser.h"
 
@@ -68,6 +69,17 @@ vector<int> LinuxParser::Pids() {
 }
 
 // TODO: Read and return the system memory utilization -> OK
+// Get it by
+//
+// # cat /proc/meminfo 
+//
+// This returns something like
+// MemTotal:        7648760 kB
+// MemFree:         4639460 kB
+// MemAvailable:    6459764 kB
+// Buffers:          145020 kB
+// Cached:          1766788 kB
+// ...
 float LinuxParser::MemoryUtilization() {
   string line, attribute, value, memoryFree, memoryTotal;
   std::ifstream memoryInfo(kProcDirectory + kMeminfoFilename);
@@ -83,7 +95,25 @@ float LinuxParser::MemoryUtilization() {
 }
 
 // TODO: Read and return the system uptime
-long LinuxParser::UpTime() { return 0; }
+// Get it by
+//
+// #cat /proc/uptime 
+//
+// The first value represents the total number of seconds the system has been up. 
+// The second value is the sum of how much time each core has spent idle, in 
+// seconds. Consequently, the second value may be greater than the overall system 
+// uptime on systems with multiple cores
+long LinuxParser::UpTime() {
+  string totalSecondsUp;
+  string line;
+  std::ifstream stream(kProcDirectory + kUptimeFilename);
+  if (stream.is_open()) {
+    std::getline(stream, line);
+    std::istringstream linestream(line);
+    linestream >> totalSecondsUp;
+  }
+  return std::stol(totalSecondsUp);
+}
 
 // TODO: Read and return the number of jiffies for the system
 long LinuxParser::Jiffies() { return 0; }
@@ -102,7 +132,23 @@ long LinuxParser::IdleJiffies() { return 0; }
 vector<string> LinuxParser::CpuUtilization() { return {}; }
 
 // TODO: Read and return the total number of processes
-int LinuxParser::TotalProcesses() { return 0; }
+int LinuxParser::TotalProcesses() {
+  string line;
+  string attribute;
+  string value;
+  std::ifstream stream(kProcDirectory + kStatFilename);
+  if (stream.is_open()) {
+    while (std::getline(stream, line)) {
+      std::istringstream linestream(line);
+      while (linestream >> attribute >> value) {
+        if (attribute == "processes") {
+          return stoi(value);
+        }
+      }
+    }
+  }
+  return 0;
+}
 
 // TODO: Read and return the number of running processes
 int LinuxParser::RunningProcesses() { return 0; }
