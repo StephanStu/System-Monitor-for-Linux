@@ -14,10 +14,10 @@ using std::size_t;
 using std::string;
 using std::vector;
 
-// TODO: Return the system's CPU
+// TODO: Return the system's CPU -> OK
 Processor& System::Cpu() { return cpu_; }
 
-// TODO: Return a container composed of the system's processes
+// TODO: Return a container composed of the system's processes -> OK
 vector<Process>& System::Processes() {
   // Initialize a clean vector of :Process
   processes_.clear();
@@ -28,10 +28,6 @@ vector<Process>& System::Processes() {
   // Now create a vector of :Process
   for(int id: processIds){
     processes_.push_back(Process(id));
-  }
-  // Now update the CPU-Utilization
-  for(auto& process: processes_){
-    // run a process.update()-function that updates member-variables of that process.
   }
   return processes_;
 }
