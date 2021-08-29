@@ -1,10 +1,10 @@
-# System Monitor for Linux (as part of Udacity's C++ Nanodegree Program)
+# System-Monitor-for-Linux
 This is my solution for the 2nd project in Udacity's C++ Nanodegree Program. The goal of this project is to complete a system monitor running on Linux.
 The initial code-base for the system monitor project in the Object Oriented Programming Course of the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) can be found [here](https://github.com/udacity/CppND-System-Monitor-Project-Updated).
 ![System Monitor](images/monitor.png)
 
 ## Supported Operating Systems
-This program is tested with Ubuntu 16.04.6 LTS.
+This program is tested with 16.04.6 LTS.
 [Udacity](https://www.udacity.com/) provides a browser-based Linux [Workspace](https://engineering.udacity.com/creating-a-gpu-enhanced-virtual-desktop-for-udacity-497bdd91a505) for students that this program was tested with.
 
 ## Dependencies
@@ -32,11 +32,16 @@ To run the system monitor on your Linux-Distribution follow these instructions.
 ~~~
 git clone https://github.com/StephanStu/System-Monitor-for-Linux.git
 ~~~
+Change into the directory to perform the following steps.
 2. Build the project:
 ~~~
 make build
 ~~~
+This may take a small amount of time and will result in an output similar to the one below.
+![System Monitor](images/starting_monitor.png)
 3. Run the resulting executable:
 ~~~
 ./build/monitor
 ~~~
+This runs the process monitor. Leave the program by hitting CTRL-Z.
+![Starting System Monitor](images/starting_monitor.png)
