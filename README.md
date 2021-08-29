@@ -4,7 +4,7 @@ The initial code-base for the system monitor project in the Object Oriented Prog
 ![System Monitor](images/monitor.png)
 
 ## Supported Operating Systems
-This program is tested with XXX.
+This program is tested with Ubuntu 16.04.6 LTS.
 [Udacity](https://www.udacity.com/) provides a browser-based Linux [Workspace](https://engineering.udacity.com/creating-a-gpu-enhanced-virtual-desktop-for-udacity-497bdd91a505) for students that this program was tested with.
 
 ## Dependencies
